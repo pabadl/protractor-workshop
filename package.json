@@ -1,5 +1,5 @@
 {
-  "name": "protractor-workshop-2017",
+  "name": "protractor-workshop",
   "version": "1.0.0",
   "description": "This is a Workshop about Protactor",
   "main": "index.js",
@@ -8,13 +8,14 @@
     "prebuild": "npm run clean",
     "build": "tsc",
     "test": "npm run test:headless",
-    "postinstall":"webdriver-manager update --gecko false",
+    "postinstall": "webdriver-manager update --gecko false",
     "test:local": "npm run build && protractor dist/protractor/config.js",
-    "test:headless": "npm run build && protractor dist/protractor/headless.config.js"
+    "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
+    "lint": "tslint --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pabadl/protractor-workshop-2017.git"
+    "url": "git+https://github.com/pabadl/protractor-workshop.git"
   },
   "keywords": [
     "ui-testing",
@@ -25,15 +26,17 @@
   "author": "Juan Pablo Abad - pabadl@psl.com.co (pabadl)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pabadl/protractor-workshop-2017/issues"
+    "url": "https://github.com/pabadl/protractor-workshop/issues"
   },
-  "homepage": "https://github.com/pabadl/protractor-workshop-2017#readme",
+  "homepage": "https://github.com/pabadl/protractor-workshop#readme",
   "dependencies": {
     "jasmine-spec-reporter": "^4.2.1",
     "protractor": "^5.2.0"
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.4.2",
     "typescript": "^2.6.2"
   }
 }
