@@ -13,7 +13,7 @@ import { OrderResumePage } from '../src/page/OrderResume.page';
 
 
 
-describe('Buy a t-shirt', () => {
+describe('Given a Buy  of a t-shirt', () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productListPage: ProductListPage = new ProductListPage();
   const productDetailPage: ProductDetailPage = new ProductDetailPage();
@@ -25,61 +25,89 @@ describe('Buy a t-shirt', () => {
   const paymentStepPage: PaymentStepPage = new PaymentStepPage();
   const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
   const orderResumePage: OrderResumePage= new OrderResumePage();
+  
 
- beforeEach(() => {
-   jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
+    
+  beforeEach(() => {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
+  });
+  describe('when open the page of the nav', () => {
+    
+        it('then should be shown a menu of categories', async () => {
+      await browser.get('http://automationpractice.com/');
+    });
+  });  
+  
+ 
+  describe('when add to cart a tshirt', () => {
+    
+        it('then should be shown the summary of the the tshirt', async () => {
+          await(browser.sleep(3000));
+          await menuContentPage.goToTShirtMenu();
+          
+
+          await(browser.sleep(3000));
+          await productListPage.goToTShirtImg();
+          
+          
+          await(browser.sleep(3000));
+          await productDetailPage.goToTShirtDetail();
+          
+          
+          await(browser.sleep(3000));
+          await productAddedModalPage.goToTShirtAddedModal();
+          
+            });
+          });
+
+
+  describe('when sing up to the app', () => {
+    
+        it('then should be shown the address of the user ', async () => {  
+          await(browser.sleep(3000));
+          await summaryStepPage.goToTShirtSummary();
+          
+          
+          await(browser.sleep(3000));
+          await singInStepPage.goToTShirtEmail();
+          
+          await singInStepPage.goToTShirtPassword();
+          
+          await singInStepPage.goToSubmitLogin();
+
+          });
+        });
+  
+  describe('when the shipping is choosen ', () => {
+    
+        it('then should choose the default address ', async () => {  
+    
+          await(browser.sleep(3000));
+          await addressStepPage.goToTUserAddress();
+        });
+      });
+  
+  describe('when the shipping is chosen', () => {
+    
+        it('then should pay in the bank', async () => {  
+        
+          await(browser.sleep(3000));
+          await shippingStepPage.goToAgreeTerms();
+          
+          await shippingStepPage.goToCheckShip();
+
+              
+          await(browser.sleep(3000));
+          await paymentStepPage.goToTShirtPayment();
+
+
+          await(browser.sleep(3000));
+          await bankPaymentPage.goToConfirmOrder();
+          
+          
+          await(browser.sleep(3000));
+          await orderResumePage.goToCheckOrderResume();
+   
+      });
+    });  
  });
-
- it('then should be bought a t-shirt', async () => {
-  await browser.get('http://automationpractice.com/');
-  
-  await(browser.sleep(3000));
-  await menuContentPage.goToTShirtMenu();
-  
-
-   await(browser.sleep(3000));
-   await productListPage.goToTShirtImg();
-   
-   
-   await(browser.sleep(3000));
-   await productDetailPage.goToTShirtDetail();
-  
-   
-   await(browser.sleep(3000));
-   await productAddedModalPage.goToTShirtAddedModal();
-   
-   
-   await(browser.sleep(3000));
-   await summaryStepPage.goToTShirtSummary();
-   
-   
-   await(browser.sleep(3000));
-   await singInStepPage.goToTShirtEmail();
-  
-   await singInStepPage.goToTShirtPassword();
-  
-   await singInStepPage.goToSubmitLogin();
-  
-   
-   await(browser.sleep(3000));
-   await addressStepPage.goToTUserAddress();
-   
-   await(browser.sleep(3000));
-   await shippingStepPage.goToAgreeTerms();
-   
-   await shippingStepPage.goToCheckShip();
-
-      
-   await(browser.sleep(3000));
-   await paymentStepPage.goToTShirtPayment();
-
-
-   await(browser.sleep(3000));
-   await bankPaymentPage.goToConfirmOrder();
-  
-   
-   await(browser.sleep(3000));
-   await orderResumePage.goToCheckOrderResume();
-   
- });
-});
