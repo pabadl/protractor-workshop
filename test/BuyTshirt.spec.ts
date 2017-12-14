@@ -43,7 +43,7 @@ describe('Given a Buy  of a t-shirt', () => {
       
 
       await(browser.sleep(3000));
-      await productListPage.goToTShirtImg();
+      await productListPage.selectProduct('Faded Short Sleeve T-shirts');
       
       
       await(browser.sleep(3000));
